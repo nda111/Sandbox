@@ -63,7 +63,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && locale-gen en_US.UTF-8 \
     && rm -rf /var/lib/apt/lists/*
 
-# [3/8] Colored bash for all interactive shells (works for any runtime UID)
+# [3/8] Interactive-shell defaults: color prompt + auto-cd to /workspace.
 #       Writes to /etc/bash.bashrc (sourced by interactive non-login bash on
 #       Debian/Ubuntu) so the user does not need a personal ~/.bashrc.
 RUN cat >> /etc/bash.bashrc <<'EOF'
@@ -85,6 +85,13 @@ alias l='ls -CF'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+# --- Auto-cd to /workspace on shell entry (only when starting at $HOME) ---
+# Skipped if the user opened a nested bash from elsewhere, or if /workspace
+# is missing (e.g., no volume mounted).
+if [ -d /workspace ] && [ "$PWD" = "$HOME" ]; then
+    cd /workspace
+fi
 EOF
 
 # [4/8] Node.js + Claude Code (system-wide, usable from any UID)
