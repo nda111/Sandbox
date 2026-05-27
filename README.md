@@ -18,6 +18,7 @@ Each subdirectory is a self-contained image variant with its own `Dockerfile`. T
 | Variant | OS | Python | CUDA | cuDNN | DL framework | LLM tooling | Image size |
 |---|---|---|---|---|---|---|---|
 | [`cuda12.4-runtime-claude`](./cuda12.4-runtime-claude) | Ubuntu 22.04 | 3.11 (conda) | 12.4 | 9 | PyTorch 2.5.1 | Claude Code 2.1.140 | ~7.8 GB |
+| [`cuda12.4-runtime-claude-codex`](./cuda12.4-runtime-claude-codex) | Ubuntu 22.04 | 3.11 (conda) | 12.4 | 9 | PyTorch 2.5.1 | Claude Code 2.1.152, Codex 0.134.0 | ~8.1 GB |
 
 ## Common conventions
 
@@ -47,4 +48,4 @@ See each variant's `Dockerfile` header for variant-specific build/run details.
 
 ## License
 
-MIT
+[MIT](https://github.com/nda111/Sandbox/blob/master/LICENSE)
