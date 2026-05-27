@@ -40,7 +40,7 @@ FROM pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime
 
 LABEL org.opencontainers.image.title="sandbox" \
       org.opencontainers.image.description="DL research base: PyTorch 2.5.1 + CUDA 12.4 + Claude Code 2.1.140" \
-      org.opencontainers.image.version="cuda12.4-runtime" \
+      org.opencontainers.image.version="cuda12.4-runtime-claude" \
       org.opencontainers.image.authors="Geunhyeok Yu" \
       org.opencontainers.image.licenses="MIT"
 
